@@ -1,0 +1,423 @@
+Nome: Eduardo Ferreira Rumbelsperger Querido - 2º Sem ADS Turma A
+
+
+-------------------------------------------------- Exercício 1 --------------------------------------------------
+
+
+//Exercício 1 - Escreva uma função que recebe um inteiro positivo n e devolve 1 se n é primo ou 0 caso contrário
+
+
+#include<stdio.h>
+#include<locale.h>
+#include<math.h>
+
+//Declaração de funções
+int verificar();
+
+//Declaração de variáveis
+int aux, n, primo = 1;
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+
+    do{
+        printf("Informe um número: ");
+        scanf("%d", &n);
+    }while(n<=1);
+
+    verificar();
+}
+
+
+int verificar(){
+
+     for (aux=2;aux <= sqrt(n); aux++) //Se um número é dívisivel por um número
+                                       //menor que sua raiz quadrado, então ele não é primo
+             if((n%aux)==0)
+                primo=0;
+
+     if(primo)
+        printf("O número é primo");
+     else
+        printf("O número não é primo");
+
+}
+
+
+
+-------------------------------------------------- Exercício 2 --------------------------------------------------
+
+//Exercício 2 - Escreva um função que leia um inteiro não-negativo n e imprimaa soma dos n primeiros números primos
+
+#include <stdio.h>
+#include<math.h>
+#include<locale.h>
+
+
+//Declaração de variáveis
+    //primeiro número primo é 2, por tanto, i = 2;
+    //cont = contador para que seja verificado os n números primos solicitados pelo usuário;
+int aux, i = 2, cont = 1, n, primo, total=0;
+
+
+//Declaração de funções
+
+int verificar();//Verifica se o número é primo
+
+
+int main() {
+    setlocale(LC_ALL, "portuguese");
+
+    do{
+        printf("Informe quantos primos serão somados: ");
+        scanf("%d",&n);
+    }while(n<0);
+
+    verificar();
+
+    printf("A soma dos primeiros %d números primos é: %d\n", n, total);
+
+}
+
+int verificar(){
+
+    while (cont <= n) {
+            primo=1;
+        for (aux = 2;aux <= sqrt(i); aux++)
+            if (i % aux == 0)
+            primo = 0;
+
+        if (primo) {
+            printf("%d\n", i);
+            cont++;
+            total+=i;
+            }
+        i++;
+    }
+}
+
+
+
+-------------------------------------------------- Exercício 3 --------------------------------------------------
+
+
+//Exercício 3 - Faça uma funçãoque receba, por pârametro, um valor inteiro e positivo e retorna o número de divisores desse número
+
+#include<stdio.h>
+#include<locale.h>
+
+
+//Declaração de funções
+
+int divisores();
+
+//Declaração de variáveis
+int n, j, count;
+
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+
+    printf("Informe um número: ");
+    scanf("%d", &n);
+
+    divisores();
+
+    printf("O número %d tem %d divisores.", n, count);
+}
+
+int divisores(){
+    for(j=1; j<=n; j++){
+            if(n%j==0)
+                count+=1;
+    }
+
+}
+
+
+
+-------------------------------------------------- Exercício 4 --------------------------------------------------
+
+
+//Exercício 4 - Escreva uma função que recebe 3 valores inteiros e positivos
+//X, Y e Z e que verifique se esses valores podem ser os comprimentos dos lados
+//de um triângulo e, neste caso, retornar qual o tipo de triângulo formado.
+
+
+#include<stdio.h>
+#include<locale.h>
+
+
+//Declaração de função
+
+int triangulo();
+int tipo();
+
+//Declaração de variáveis
+
+int a, b, c, tri;
+
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+    //1º lado do triângulo
+    printf("1º lado: ");
+    scanf("%d", &a);
+    //2º lado do triângulo
+    printf("2º lado: ");
+    scanf("%d", &b);
+    //3º lado do triângulo
+    printf("3º lado: ");
+    scanf("%d", &c);
+    printf("\n");
+
+    triangulo();
+
+    if(tri==1){
+        tipo();
+    }
+}
+
+
+
+int triangulo(){
+    if(a+b>c && a+c>b && c+b>a){
+        printf("É possível formar um triângulo.\n\n");
+        tri = 1;
+    }
+    else{
+        printf("Não é possível formar um triângulo.\n\n");
+        tri = 0;
+    }
+
+}
+
+
+int tipo(){
+
+    if (a==c && a!=b)
+            printf("O triângulo é isósceles!");
+
+    else if(a==b && a!=c)
+            printf("O triângulo é isósceles!");
+
+    else if(b==c && b!=a)
+            printf("O triângulo é isósceles!");
+
+    else if(a==c && a==b)
+        printf("O triângulo é equilátero!");
+
+    else
+        printf("O triângulo é escaleno!");
+}
+
+
+
+-------------------------------------------------- Exercício 5 --------------------------------------------------
+
+
+//Exercício 5 - Faça uma função para calcular o fatorial de um número fornecido pelo usuário;
+
+#include<stdio.h>
+#include<locale.h>
+#include<conio.h>
+
+
+//Declaração de funções
+
+double fat(int n);
+
+//Declaração de variáveis
+
+int n;
+double f;
+
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+
+    printf("Informe um número: ");
+    scanf("%d", &n);
+    printf("\n");
+
+    f = fat(n);
+
+
+    printf("O fatorial de %d é: %.0f\n", n, f);
+
+    getch();
+    return 0;
+}
+
+//Cálculo do fatorial utilizando recursividade, chamando a função fat() dentro da mesma função
+double fat(int n){
+    double fatorial;
+
+    if(n<=1){
+        return (1);
+    }
+    else{
+        fatorial = n * fat(n-1);
+        return (fatorial);
+    }
+}
+
+
+
+-------------------------------------------------- Exercício 6 --------------------------------------------------
+
+
+//Exercício 6 - Escreva uma função recursiva que receba, por parâmetro, dois valores X e Z  e retorna
+//o valor de x^z
+
+#include<stdio.h>
+#include<locale.h>
+
+
+//Declaração de funções
+int potencia();
+
+//Declaração de variáveis
+int x, y, z, i=1;
+
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+
+    printf("Informe o valor de X: ");
+    scanf("%d", &x);
+    printf("Informe o valor de Z: ");
+    scanf("%d", &z);
+
+
+
+    potencia();
+    printf("%d elevado a %d é: %d", y, z, x);
+}
+
+int potencia(){
+    y = x;
+    while(i<z){
+        x*=y;
+        i++;
+    }
+}
+
+
+
+-------------------------------------------------- Exercício 7 --------------------------------------------------
+
+
+
+//Exercício 7 - Faça 3 funções, Ler, Multiplicar e imprimir;
+
+//Função Ler - uma funçãoque receba dois números inteiros e positivos;
+//Função Multiplicar - que multiplique os números recebidos na função Ler;
+//Função imprimir - que imprima os resultados;
+
+#include<stdio.h>
+#include<locale.h>
+
+
+//Declaração de funções
+void ler();
+int multiplicar();
+int imprimir();
+
+
+//Declaração de variáveis
+
+int a, b, resultado;
+
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+
+    ler();
+    multiplicar();
+    imprimir();
+
+    getch();
+}
+
+
+void ler(){
+
+        do{
+            printf("Informe o valor do primeiro número: ");
+            scanf("%d", &a);
+    }while(a<0);
+
+        do{
+            printf("Informe o valor do segundo número: ");
+            scanf("%d", &b);
+    }while(b<0);
+}
+
+
+int multiplicar(){
+    resultado = a*b;
+}
+
+
+int imprimir(){
+
+    printf("O resultado da multiplicação %d x %d é: %d", a, b, resultado);
+}
+
+
+
+-------------------------------------------------- Exercício 8 --------------------------------------------------
+
+
+
+//Exercício 8 - Escreva uma função que recebe um inteiro positivo n e devolve
+
+#include<stdio.h>
+#include<locale.h>
+
+
+//Declaração de funções
+int verificar();
+
+//Declaração de variáveis
+int n;
+
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+
+    printf("Informe um número: ");
+    scanf("%d", &n);
+
+    verificar();
+
+    getch();
+}
+
+int verificar(){
+
+    if(n%2==0){
+        printf("1");
+    }else{
+    printf("0");
+    }
+
+}
+
+
+
+-------------------------------------------------- PARTE B --------------------------------------------------
+
+
+
+//PARTE B - Pesquisa Função Recursiva
+
+
+- A recursão é uma técnica que define um problema em termos de uma ou mais versões menores deste mesmo problema.
+
+- A recursão pode ser utilizada sempre que for possível expressar a solução de um problema em função do próprio problema.
+
+- Uma função é dita recursiva quando dentro do seu código existe uma chamada para si mesma. Por Exemplo: Calcular o Fatorial de um número N inteiro qualquer. 
+
+Referência: https://www.codingame.com/playgrounds/24988/programacao-c/funcoes-recursivas
