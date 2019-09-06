@@ -1,0 +1,522 @@
+Aluno: Eduardo Ferreira Rumbelsperger Querido - 2º ADS - Turma A
+
+-------------------------------------------------- Exercício 1 --------------------------------------------------
+
+//Exercício 1 - Dado dois números inteiros positivos,
+//calcular a sua soma
+
+
+#include <stdio.h>
+#include <locale.h>
+
+//Declaração das variáveis
+int a, b, soma;
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+
+    printf("Informe o valor de a: ");
+    scanf("%d", &a);
+    printf("Informe o valor de b: ");
+    scanf("%d", &b);
+    soma = a + b;
+
+    printf("O valor da soma é: %d\n", soma);
+
+}
+
+
+-------------------------------------------------- Exercício 2 --------------------------------------------------
+
+//Exercício 2 - Faça um programa que solicite um número
+//(inteiro/positivo) e imprima-o.
+
+
+#include <stdio.h>
+#include <locale.h>
+
+//Declaração das variáveis
+int n;
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+    printf("Informe um valor inteiro positivo: ");
+    scanf("%d", &n);
+	//número inteiro e positivo
+        while(n<=0){ 
+            printf("Informe um valor inteiro positivo: ");
+            scanf("%d", &n);
+        }
+    printf("O valor digitado foi: %d", n);
+}
+
+
+-------------------------------------------------- Exercício 3 --------------------------------------------------
+
+//Exercício 3 - Dado um número positivo n, imprima seu quadrado
+
+
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+
+//Declaração das variáveis
+int n, qd;
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+    printf("Informe o valor de n: ");
+    scanf("%d", &n);
+
+    //qd = n * n;
+	   //usando pow(), a potenciação está dando errado quando n=5; a solução foi a seguinte:
+    qd = (int)(pow(n, 2) + 0.5);
+    
+
+    printf("O quadrado de %d é igual a: %d\n", n, qd);
+
+}
+
+
+-------------------------------------------------- Exercício 4 --------------------------------------------------
+
+//Exercício 4 - Faça um programa que solicite o ano em que uma pessoa nasceu
+//e retorne sua idade.
+
+#include <stdio.h>
+#include <locale.h>
+
+
+//Declaração das variáveis
+    //Constante:
+    int ano_atual = 2019;
+    //Variável:
+    int ano_nasc, idade;
+
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+    printf("Informe o ano de seu nascimento: ");
+    scanf("%d", &ano_nasc);
+
+    idade = ano_atual - ano_nasc;
+
+    printf("Sua idade: %d", idade);
+
+}
+
+
+-------------------------------------------------- Exercício 5 --------------------------------------------------
+
+//Exercício 5 - Dado um número inteiro positivo n verificar se é par ou ímpar.
+//Apresente uma mensagem informando o número e o resultado.
+//OBS: % é utilizado para calcular o resto
+
+
+#include<stdio.h>
+#include<locale.h>
+
+//Declaração das variáveis
+int n;
+
+int n;
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+
+    printf("Informe um número: ");
+    scanf("%d", &n);
+
+    if (n%2==0){
+        printf("O número %d é par!", n);
+
+    }
+    else{
+        printf("O número %d é ímpar!", n);
+    }
+
+}
+
+
+-------------------------------------------------- Exercício 6 --------------------------------------------------
+
+//Exercício 6 - Dados três número, imprimi-los em ordem crescente.
+
+
+#include<stdio.h>
+#include<locale.h>
+
+//Declaração das variáveis
+int a, b, c;
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+    printf("Informe tres numero: ");
+    scanf("%d %d %d", &a, &b, &c);
+
+
+if (a>b && a>c){
+            if (b>c){
+                printf("A ordem sera:\n%d\n%d\n%d", c, b, a);
+            }
+            else{
+                printf("A ordem sera:\n%d\n%d\n%d", b, c, a);
+            }
+        }
+
+    else if (b>a && b>c){
+            if (a>c){
+                printf("A ordem sera:\n%d\n%d\n%d", c, a, b);
+            }
+            else{
+                printf("A ordem sera:\n%d\n%d\n%d", a, c, b);
+            }
+    }
+    else{
+            if (a>b){
+                printf("A ordem sera:\n%d\n%d\n%d", b, a, c);
+            }
+            else{
+                printf("A ordem sera:\n%d\n%d\n%d", a, b, c);
+            }
+        }
+
+    }
+
+
+-------------------------------------------------- Exercício 7 --------------------------------------------------
+
+//Exercício 7 - Calcular o fatorial de um número fornecido pelo usuário
+//A função fatorial de um número natural n é o produto de todos os n primeiros números naturais.
+//Fat(n)=n!=1.2.3.4
+
+#include<stdio.h>
+#include<locale.h>
+
+//Declaração das variáveis
+int n, c, j=1;
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+    printf("Informe um numero: ");
+    scanf("%d", &n);
+
+    for(c=1;c<=n;c++){
+    j*=c;
+    }
+
+    printf("O fatorial de %d e %d", n, j);
+
+}
+
+
+-------------------------------------------------- Exercício 8 --------------------------------------------------
+
+//Exercício 8 - Calcular a tabuada de um número fornecido pelo usuário
+//multiplicado de 0 a 12. O resultado deverá ser apresentado da seguinte forma:
+//Número x 0 = Resultado1
+//Número x 1 = Resultado2
+//e assim por diante
+
+#include<stdio.h>
+#include<locale.h>
+
+//Declaração das variáveis
+int n, c, tab;
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+    printf("Informe um número: ");
+    scanf("%d", &n);
+
+    for (c=0;c<=10;c++){
+        tab = c * n;
+        printf("%d x %d = %d\n", n, c, tab);
+    }
+
+}
+
+
+-------------------------------------------------- Exercício 9 --------------------------------------------------
+
+//Exercício 9 - Crie um programa por meio do qual o usuário irá digitar
+//a operação desejada e dois valores, ao final deverá ser exibido o resultado
+//da operação.
+
+
+#include<stdio.h>
+#include<locale.h>
+#include <stdlib.h>
+
+//Opções de operações:
+//1 - Divisão
+//2 - Resto da divisão
+//3 - Adição
+//4 - Multiplicação
+
+//Declaração das variáveis
+int a, b, resultado, n;
+
+
+//Declaração das Funções
+
+void divisao();
+void resto();
+void adicao();
+void multi();
+void fim();
+
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+
+    while(n>=0){
+        printf("\t Menu de Operações\n\n");
+
+        printf("[1]:\t Divisão\n");
+        printf("[2]:\t Resto da Divisão\n");
+        printf("[3]:\t Adição\n");
+        printf("[4]:\t Multiplicação\n");
+        printf("[5]:\t Sair\n");
+
+        scanf("%d", &n);
+
+
+    switch(n){
+        case 1:
+            divisao();
+            break;
+
+        case 2:
+            resto();
+            break;
+
+        case 3:
+            adicao();
+            break;
+
+        case 4:
+            multi();
+            break;
+
+        case 5:
+            fim();
+            break;
+    }
+    system("cls");
+}
+}
+
+void divisao(){
+    printf("Informe o numerador: ");
+    scanf("%d", &a);
+    printf("Informe o denominador: ");
+    scanf("%d", &b);
+    printf("\n");
+
+    resultado = a/b;
+
+    printf("O resultado da divisão é: %d\n\n", resultado);
+
+    system("pause");
+}
+
+
+
+void resto(){
+    printf("Informe o numerador: ");
+    scanf("%d", &a);
+    printf("Informe o denominador: ");
+    scanf("%d", &b);
+    printf("\n");
+
+    resultado = a%b;
+
+    printf("O resto da divisão de %d por %d é: %d\n\n", a, b, resultado);
+    system("pause");
+}
+
+
+void adicao(){
+    printf("Informe o primeiro número: ");
+    scanf("%d", &a);
+    printf("Informe o segundo número: ");
+    scanf("%d", &b);
+    printf("\n");
+
+    resultado = a + b;
+
+    printf("O resultado da adição é: %d\n\n", resultado);
+    system("pause");
+}
+
+
+void multi(){
+    printf("Informe o primeiro número: ");
+    scanf("%d", &a);
+    printf("Informe o segundo número: ");
+    scanf("%d", &b);
+    printf("\n");
+
+    resultado = a*b;
+
+    printf("O resultado da multiplicação é: %d\n\n", resultado);
+    system("pause");
+}
+
+void fim(){
+    exit(0);
+}
+
+
+-------------------------------------------------- Exercício 10 --------------------------------------------------
+
+//Exercício 10 - Dada um sequência de números inteiros não-nulos,
+//começando por 1, imprimir seus quadrados
+
+
+#include<stdio.h>
+#include<locale.h>
+#include<math.h>
+
+
+//Declaração das variáveis
+int a, b, c;
+
+//Declaração de funções
+void quadrados();
+
+
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+
+    do{
+        printf("Insira o número 1: ");
+        scanf("%d", &a);
+        if (a!=1){
+        printf("O primeiro número deve ser 1\n", a);
+        }
+        else{
+            printf("O quadrado de 1 é = 1\n");
+        }
+
+    }while(a!=1);
+
+    do{
+        printf("Insira um número: ");
+        scanf("%d",&a);
+
+        if(a!=0){
+            c = (int)(pow(a, 2) + 0.5);
+            printf("O quadrado de %d = %d\n", a, c);
+        }
+        else{
+            break;
+        }
+}while(a!=0);
+
+}
+
+
+-------------------------------------------------- Exercício 11 --------------------------------------------------
+
+//Exercício 11 - Dado um número inteiro positivo n, calcular a soma dos n primeiros números naturais;
+
+
+#include<stdio.h>
+#include<locale.h>
+#include<math.h>
+
+//Declaração de variáveis
+int n, a, b=0;
+
+
+int main() {
+    setlocale(LC_ALL, "portuguese");
+
+    printf("Insira o valor de n: ");
+    scanf("%d", &n);
+
+    for(a=1; a<=n; a++){
+        b+=a;
+    }
+
+    printf("O valor da soma dos %d primeiros números é: %d\n", n, b);
+
+}
+
+
+-------------------------------------------------- Exercício 12 --------------------------------------------------
+
+//Exercício - Dado um número inteiro positivo n, imprimir os n primeiros naturais ímpares.
+
+
+#include<stdio.h>
+#include<locale.h>
+
+//Declaração de variáveis
+int n, a, j;
+
+int main() {
+    setlocale(LC_ALL, "portuguese");
+    printf("Insira o valor de n: ");
+    scanf("%d", &n);
+
+    printf("Os primeiros %d ímpares são:\n", n);
+
+    for(a=1;j<n;a+=2){
+            printf("%d\n", a);
+            j++;
+        }
+
+}
+
+-------------------------------------------------- Exercício 13 --------------------------------------------------
+
+//Exercício 13 - Dados um inteiro x e um inteiro não-negativo n, calcular x elevado a n;
+
+#include<stdio.h>
+#include<locale.h>
+
+//Declaração de variáveis
+int x, n, resultado;
+
+int main(){
+    setlocale(LC_ALL, "portuguese");
+
+    printf("Informe um número inteiro: ");
+    scanf("%d", &x);
+    printf("Informe um número inteiro não-negativo: ");
+    scanf("%d", &n);
+
+
+    resultado = (int)(pow(x, n) + 0.5);
+
+    printf("O valor de %d elevado a %d é: %d\n", x, n, resultado);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
